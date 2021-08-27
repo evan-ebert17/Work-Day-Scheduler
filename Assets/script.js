@@ -1,7 +1,10 @@
 var timeBlockDiv = document.getElementById('daniel');
-var timeTextArray = [`9 Am`, `10 Am`, `11 Am`, `12 Pm`, `1 Pm`, `2 Pm`, `3 Pm`, `4 Pm`, `5 Pm`, `6 Pm`, `7 Pm`, `8 Pm`, `9 Pm`];
 
-currentDayDiv = document.getElementById('currentDay');
+var timeblocksArray = [];
+timeblocksArray.length = 22;
+var tArrLength = timeblocksArray.length;
+
+var currentDayDiv = document.getElementById('currentDay');
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -13,25 +16,58 @@ var currentTime = new Date();
 var time = currentTime.getHours();
 
 function createTimeblocks() {
-    for (let i = 0; i < timeTextArray.length; i++) {
-        const ArrayPos = timeTextArray[i];
-        if (i <= 13) {
-            console.log('hello')
-            var timeblockText = document.createElement('p');
-            var timeblockField = document.createElement('input');
-            var timeblockButton = document.createElement('button');
-            var timeblockCard = document.createElement('div');
-            timeblockText.textContent = timeTextArray[i];
-            timeblockField.classList.add('timeblock');
+    for (let i = 9; i < tArrLength; i++) {
+        if (i <= 22) {
+            let timeblockText = document.createElement('p');
+            let timeblockField = document.createElement('input');
+            let timeblockButton = document.createElement('button');
+            let timeblockCard = document.createElement('div');
+            
+            timeblockCard.classList.add('timeDiv');
+
+            if (i < time) {
+                timeblockField.classList.add('past');
+            } else if (i === time) {
+                timeblockField.classList.add('present');
+            } else if (i > time) {
+                timeblockField.classList.add('future');
+            }
+            timeblockField.setAttribute('type', 'text')
+            timeblockField.setAttribute('id', `${i}`)
+            if (i <= 11) {
+                timeblockText.textContent = `${i}AM`;
+            } else if (i === 12) { 
+                timeblockText.textContent = `12PM` 
+            }
+            else {
+                timeblockText.textContent = `${i - 12}PM`
+            }
+            timeblockText.classList.add('hour')
             timeblockButton.textContent = "Save";
             timeblockButton.classList.add('saveBtn');
+            timeblockButton.setAttribute('id', `${i}`);
             timeBlockDiv.append(timeblockCard);
             timeblockCard.append(timeblockText);
             timeblockCard.append(timeblockField);
             timeblockCard.append(timeblockButton);
-
         }
     }
 }
 
 createTimeblocks();
+var buttons = document.querySelectorAll('button');
+var blockText = document.querySelectorAll('input');
+console.log(buttons)
+console.log(blockText)
+for (let i = 0; i < buttons.length; i++) {
+    const allBtns = buttons[i];
+    const blockTextindex = blockText[i]
+    
+    allBtns.addEventListener('click', function(){
+        // for (let j = 0; j < blockText.length; j++) {
+        //     const blockTextindex = blockText[j]
+        //     console.log('hello')
+        // }
+        
+})
+};
