@@ -1,7 +1,7 @@
 # Work Day Scheduler
 
 ## Screenshot of Application
- ![Work-Day-Scheduler]
+ ![Work-Day-Scheduler](Assets/75338dd73d706240fa56206b5770b0e4.png)
 
 ## Functionality
 This project is a web-based planner that you can use to write notes and save them based on a 9 to 9 day. Everything highlighted in green is your day to come, red is the current hour and grey has already happened. Wheever you click the save button, you are alerted that you have saved. From there, you may refresh your page, whatever you'd like, and your notes will stay there.
