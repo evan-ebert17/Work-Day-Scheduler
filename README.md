@@ -8,3 +8,7 @@ This project is a web-based planner that you can use to write notes and save the
 
 ## Code
 By using localStorage, we are able to have the user notes persist after they are created. Additionally, this project uses JQuery for some shorthand loading of the user-saved content to the page and to have the window load everything.
+
+## Made by
+This project was made by
+Evan Ebert - https://github.com/evan-ebert17 
